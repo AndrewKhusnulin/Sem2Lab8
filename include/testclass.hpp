@@ -28,8 +28,8 @@ class complex
 		friend bool operator ==(const complex &, const complex &);
 		friend bool operator !=(const complex &, const complex &);
 		
-		get_im() const;
-		get_re() const;
+		double get_im() const;
+		double get_re() const;
 		
 };
 class DevideError
@@ -132,11 +132,11 @@ bool operator !=(const complex & lhs, const complex & rhs)
 {
 	return !(lhs==rhs);
 }
-complex::get_im() const
+double complex::get_im() const
 {
 	return this->im_; 
 }
-complex::get_re() const
+double complex::get_re() const
 {
 	return this->re_;
 }
