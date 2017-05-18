@@ -79,16 +79,16 @@ SCENARIO("opertor +")
 	REQUIRE((a+b).get_re() == 4); 
 	REQUIRE((a+b).get_im() == 6);
 	REQUIRE((a+c).get_re() == 101); 
-	REQUIRE((a+c).get_im() == 102);
-	REQUIRE((c+a).get_re() == 102); 
-	REQUIRE((c+a).get_im() == 102);
+	REQUIRE((a+c).get_im() == 2);
+	REQUIRE((c+a).get_re() == 101); 
+	REQUIRE((c+a).get_im() == 2);
 }
 SCENARIO("opertor -")
 {
 	complex a (10,20);
 	complex b (3,4);
 	double c = 1;
-	REQUIRE((a-b).get_re() == 17); 
+	REQUIRE((a-b).get_re() == 7); 
 	REQUIRE((a-b).get_im() == 16);
 	REQUIRE((a-c).get_re() == 9); 
 	REQUIRE((a-c).get_im() == 20);
