@@ -88,8 +88,6 @@ SCENARIO("opertor -")
 	complex a (10,20);
 	complex b (3,4);
 	double c = 1;
-	a/=b;
-	b/=c;
 	REQUIRE((a-b).get_re() == 17); 
 	REQUIRE((a-b).get_im() == 16);
 	REQUIRE((a-c).get_re() == 9); 
@@ -102,8 +100,6 @@ SCENARIO("opertor *")
 	complex a (1,2);
 	complex b (3,4);
 	double c = 10;
-	a/=b;
-	b/=c;
 	REQUIRE((a*b).get_re() == -5); 
 	REQUIRE((a*b).get_im() == 10);
 	REQUIRE((a*c).get_re() == 10); 
@@ -116,19 +112,17 @@ SCENARIO("opertor /")
 	complex a (1,2);
 	complex b (3,4);
 	double c = 10;
-	a/=b;
-	b/=c;
-	REQUIRE((a*b).get_re() == 0.44); 
-	REQUIRE((a*b).get_im() == 0.08);
-	REQUIRE((a*c).get_re() == 0.1); 
-	REQUIRE((a*c).get_im() == 0.2);
-	REQUIRE((c*a).get_re() == 2); 
-	REQUIRE((c*a).get_im() == -4);
+	REQUIRE((a/b).get_re() == 0.44); 
+	REQUIRE((a/b).get_im() == 0.08);
+	REQUIRE((a/c).get_re() == 0.1); 
+	REQUIRE((a/c).get_im() == 0.2);
+	REQUIRE((c/a).get_re() == 2); 
+	REQUIRE((c/a).get_im() == -4);
 }
 SCENARIO("operator ==")
 {
 	complex a (5,2);
-	complex b (5.2);
+	complex b (5,2);
 	REQUIRE((a==b)==1);
 }
 SCENARIO("operator !=")
