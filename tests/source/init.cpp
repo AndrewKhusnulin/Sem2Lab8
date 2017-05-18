@@ -91,7 +91,7 @@ SCENARIO("operator -")
 	REQUIRE((a-c).get_re() == 9); 
 	REQUIRE((a-c).get_im() == 20);
 	REQUIRE((c-a).get_re() == -9); 
-	REQUIRE((c-a).get_im() == 20);
+	REQUIRE((c-a).get_im() == -20);
 }
 SCENARIO("operator *")
 {
