@@ -1,40 +1,71 @@
 #include <testclass.hpp>
 #include <catch.hpp>
 
-/*SCENARIO ("constructor")
+SCENARIO ("constructor")
 {
-	complex 
-	REQUIRE(BST.get_root() == nullptr);
+	complex a (5,2)
+	REQUIRE(a.get_re() == 5); 
+	REQUIRE(a.get_im()==2);
 }
-SCENARIO("findElement")
+SCENARIO("copy constructor")
 {
-	Tree<int> bst;
-	bst.insert(13);
-	REQUIRE(bst.find(13) != nullptr);
-	REQUIRE(bst.find(12) == nullptr);
+	complex a (5,2);
+	complex b (a);
+	REQUIRE(b.get_re() == 5); 
+	REQUIRE(b.get_im() == 2);
 }
-
-SCENARIO("addElement")
+SCENARIO("opertor =")
 {
-	Tree<int> bst;
-	bst.insert(13);
-	bst.insert(23);
-	REQUIRE((bst.get_root())->get_data() == 13);
+	complex a (5,2);
+	complex b = a;
+	REQUIRE(b.get_re() == 5); 
+	REQUIRE(b.get_im() == 2);
 }
-
-SCENARIO("infile")
+SCENARIO("opertor +=")
 {
-	Tree<int> bst;
-	bst.fileIn("my.txt");
-	REQUIRE((bst.get_root())->get_data() == 1);
+	complex a (5,2);
+	complex b (6,4);
+	double c = 100;
+	a+=b;
+	b+=c;
+	REQUIRE(a.get_re() == 11); 
+	REQUIRE(a.get_im() == 8);
+	REQUIRE(b.get_re() == 106); 
+	REQUIRE(b.get_im() == 4);
 }
-SCENARIO("removeNode")
+SCENARIO("opertor -=")
 {
-	Tree<int> bst;
-    bst.insert(13);
-	bst.insert(15);
-	bst.insert(25);
-	bst.insert(10);
-	bst.remove(13);
-	REQUIRE(bst.find(13) == nullptr);
-}*/
+	complex a (5,2);
+	complex b (6,4);
+	double c = 1;
+	a-=b;
+	b-=c;
+	REQUIRE(a.get_re() == -1); 
+	REQUIRE(a.get_im() == -2);
+	REQUIRE(b.get_re() == 5); 
+	REQUIRE(b.get_im() == 3);
+}
+SCENARIO("opertor *=")
+{
+	complex a (1,2);
+	complex b (3,4);
+	double c = 10;
+	a*=b;
+	b*=c;
+	REQUIRE(a.get_re() == -5); 
+	REQUIRE(a.get_im() == -10);
+	REQUIRE(b.get_re() == 30); 
+	REQUIRE(b.get_im() == 40);
+}
+SCENARIO("opertor /=")
+{
+	complex a (16,8);
+	complex b (4,2);
+	double c = 10;
+	a/=b;
+	b/=c;
+	REQUIRE(a.get_re() == 4); 
+	REQUIRE(a.get_im() == 0);
+	REQUIRE(b.get_re() == 0.4); 
+	REQUIRE(b.get_im() == 0.2);
+}
