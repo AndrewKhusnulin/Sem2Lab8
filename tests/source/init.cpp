@@ -3,7 +3,7 @@
 
 SCENARIO ("constructor")
 {
-	complex a (5,2)
+	complex a (5,2);
 	REQUIRE(a.get_re() == 5); 
 	REQUIRE(a.get_im()==2);
 }
@@ -69,3 +69,4 @@ SCENARIO("opertor /=")
 	REQUIRE(b.get_re() == 0.4); 
 	REQUIRE(b.get_im() == 0.2);
 }
+
